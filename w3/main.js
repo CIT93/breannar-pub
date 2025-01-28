@@ -1,5 +1,4 @@
 function determineHouseholdPoints(numberInHousehold) {
-  console.log("Inside the function");
   switch (numberInHousehold) {
     case 1:
       carbonFootprintPoints += 14;
@@ -32,10 +31,33 @@ function determineHouseholdPoints(numberInHousehold) {
   );
 }
 
+function determineHomeSizePoints(homeSize) {
+  switch (homeSize) {
+    case "large":
+      carbonFootprintPoints += 10;
+      break;
+    case "medium":
+      carbonFootprintPoints += 7;
+      break;
+    case "small":
+      carbonFootprintPoints += 4;
+      break;
+    case "apartment":
+      carbonFootprintPoints += 2;
+      break;
+    default:
+      console.log("no update to points");
+      break;
+  }
+  console.log(
+    `Based on the size of the home of ${homeSize} the points would be ${carbonFootprintPoints}.`
+  );
+}
+
 let carbonFootprintPoints = 0;
-// const numberInHousehold = 3;
 
 // global scope
 
+// I decided to pass the values as parameters instead of global variables to clean it up. I could also pass carbonFootprintPoints as a parameter for readability purposes and minimizing the side effects that may happen, being able to overwrite a global variable but for this small example I think it's okay to keep it the way it is.
 determineHouseholdPoints(3);
-determineHouseholdPoints(4);
+determineHomeSizePoints("medium");
