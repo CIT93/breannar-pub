@@ -68,13 +68,13 @@ function displayOutput() {
   for (let i = 0; i < cfpData.length; i++) {
     const data = cfpData[i];
 
-    // Create an <h2> tag with the CFPData number (index + 1)
-    const h2 = document.createElement("h2");
-    h2.textContent = `CFPData #${i + 1}`;
-    output.appendChild(h2);
-
     // Create a new table for each entry
     const table = document.createElement("table");
+
+    // Add a caption with CFPData number (index + 1)
+    const caption = document.createElement("caption");
+    caption.textContent = `CFPData #${i + 1}`;
+    table.appendChild(caption);
 
     // Create the table header using a for loop
     const tableHeader = document.createElement("thead");
