@@ -100,6 +100,9 @@ FORM.addEventListener("submit", function (e) {
   e.preventDefault();
   const firstName = FORM.firstname.value;
   const lastName = FORM.lastname.value;
+  const houseHoldMembers = FORM.householdmembers.value;
+  const houseSize = FORM.housesize.value;
+  console.log(firstName, lastName, houseHoldMembers, houseSize);
 });
 
 // callback
