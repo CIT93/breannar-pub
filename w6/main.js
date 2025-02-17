@@ -48,14 +48,14 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutput() {
-  const output = document.getElementById("output");
   for (obj of cfpData) {
     console.log(obj);
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
     const newH2 = document.createElement("h2");
     newH2.textContent = `Carbon Footprint total is ${obj.total}`;
     const newH3 = document.createElement("h3");
     newH3.textContent = `Based on Number in Household and Size of Home`;
-    const newP = document.createElement("p");
     newP.textContent = `This number is based on the number of members in the home of ${obj.houseHoldMembers} (score: ${obj.houseHoldPTS}) `;
     newP.textContent += `and a ${obj.houseSize} size of home (score ${obj.houseSizePts})`;
     output.appendChild(newH2);
