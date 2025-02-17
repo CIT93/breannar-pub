@@ -1,3 +1,4 @@
+const FORM = document.getElementById("form");
 const cfpData = [];
 
 function determineHouseSizePts(size) {
@@ -94,3 +95,13 @@ function displayOutput() {
 // start(7, "large");
 
 displayOutput();
+
+FORM.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const firstName = FORM.firstname.value;
+  const lastName = FORM.lastname.value;
+});
+
+// callback
+// what is happening in the even listener
+// we have an event listener setup to "listen" for any submit types that happen on our page, once there is a submit, we invoke a callback function that is setup to prevent the default event, which would be to submit. So the form doesn't submit, and it instead logs the following outputs.
