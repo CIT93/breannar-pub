@@ -100,37 +100,42 @@ const movieArr = [
     title: "Halloween",
     year: 1978,
     rating: 10,
+    watched: 5,
   },
   {
     title: "The Texas Chain Saw Massacre",
     year: 1974,
     rating: 10,
+    watched: 6,
   },
   {
     title: "Friday the 13th",
     year: 1980,
     rating: 8,
+    watched: 3,
   },
   {
     title: "Scream",
     year: 1996,
     rating: 9,
+    watched: 2,
   },
 ];
 
-function displayMovies() {
+function displayMovies(movies) {
   const output = document.getElementById("output");
   const newH2 = document.createElement("h2");
   newH2.textContent = `Movies`;
   output.appendChild(newH2);
   const newUL = document.createElement("ul");
   output.appendChild(newUL);
-  for (obj of movieArr) {
-    console.log(obj);
+  movies.forEach(function(movie) {
+    if(movie.rating > 6 && movie.watched < 5) {
     const newLI = document.createElement("li");
-    newLI.textContent = `${obj.title} released in (${obj.year}) and has a personal rating of ${obj.rating}`;
+    newLI.textContent = `${movie.title} released in (${movie.year}), has a personal rating of ${movie.rating}, and has been watched ${movie.watched} time(s)`;
     newUL.appendChild(newLI);
-  }
+    }
+  });
 }
 
-displayMovies();
+displayMovies(movieArr);
