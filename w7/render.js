@@ -6,10 +6,10 @@ function renderTblStruct() {
   const tr = document.createElement("tr");
   const headingTextArr = [
     "Name",
-    "Household",
-    "HouseSize",
+    // "Household",
+    // "HouseSize",
     "Footprint",
-    "Actions",
+    // "Actions",
   ];
   headingTextArr.forEach(function (text) {
     const th = document.createElement("th");
@@ -22,26 +22,20 @@ function renderTblStruct() {
 }
 
 function renderTbl(data) {
+  TBL.innerHTML = "";
   const table = renderTblStruct();
   const tbody = document.createElement("tbody");
 
-  // followed manual solution
-  const tr = document.createElement("tr");
-  const trTextArr = ["Breanna", 3, "Large", 20];
-  trTextArr.forEach(function (text) {
-    const td = document.createElement("td");
-    td.textContent = text;
-    tr.appendChild(td);
+  data.forEach(function (text) {
+    const tr = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdTotal = document.createElement("td");
+    tdName.textContent = text.firstName;
+    tdTotal.textContent = text.total;
+    tr.appendChild(tdName);
+    tr.appendChild(tdTotal);
+    tbody.appendChild(tr);
   });
-  const td = document.createElement("td");
-  const btnEdit = document.createElement("button");
-  const btnDel = document.createElement("button");
-  btnEdit.textContent = "edit";
-  btnDel.textContent = "del";
-  td.appendChild(btnEdit);
-  td.appendChild(btnDel);
-  tr.appendChild(td);
-  tbody.appendChild(tr);
 
   table.appendChild(tbody);
   TBL.appendChild(table);
