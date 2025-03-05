@@ -34,7 +34,13 @@ function renderTblBtns(data, i) {
     renderTbl(data);
   });
   btnEdit.addEventListener("click", function (e) {
-    // We would need a reference to the form and set the values to the array
+    const FORM = document.getElementById("form");
+    FORM.firstname.value = data[i].firstName;
+    FORM.lastname.value = data[i].lastName;
+    FORM.householdmembers.value = data[i].houseHoldMembers;
+    FORM.housesize.value = data[i].houseSize;
+    data.splice(i, 1);
+    renderTbl(data);
   });
   return td;
 }
@@ -64,11 +70,13 @@ function renderTblRows(data) {
 
 function renderTbl(data) {
   TBL.innerHTML = "";
-  const table = renderTblHeaders();
-  const tbody = renderTblRows(data);
+  if (data.length > 0) {
+    const table = renderTblHeaders();
+    const tbody = renderTblRows(data);
 
-  table.appendChild(tbody);
-  TBL.appendChild(table);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+  }
 }
 
 export { renderTbl };
