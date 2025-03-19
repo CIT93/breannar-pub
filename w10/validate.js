@@ -1,4 +1,4 @@
-export const validateField = function (e) {
+export const validateField = (e) => {
   const field = e.target.value;
   const fieldId = e.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);

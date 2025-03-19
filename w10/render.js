@@ -1,13 +1,13 @@
 import { TBL, FORM } from "./global.js";
 import { saveLS } from "./storage.js";
 
-const onUpdate = function (data, i) {
+const onUpdate = (data, i) => {
   data.splice(i, 1);
   saveLS(data);
   renderTbl(data);
 };
 
-const renderTblHeaders = function () {
+const renderTblHeaders = () => {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -18,7 +18,7 @@ const renderTblHeaders = function () {
     "Footprint",
     "Actions",
   ];
-  headingTextArr.forEach(function (text) {
+  headingTextArr.forEach((text) => {
     const th = document.createElement("th");
     th.textContent = text;
     tr.appendChild(th);
@@ -28,7 +28,7 @@ const renderTblHeaders = function () {
   return table;
 };
 
-const renderTblBtns = function (data, i) {
+const renderTblBtns = (data, i) => {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -36,10 +36,10 @@ const renderTblBtns = function (data, i) {
   btnDel.textContent = "del";
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
-  btnDel.addEventListener("click", function (e) {
+  btnDel.addEventListener("click", () => {
     onUpdate(data, i);
   });
-  btnEdit.addEventListener("click", function (e) {
+  btnEdit.addEventListener("click", () => {
     FORM.firstname.value = data[i].firstName;
     FORM.lastname.value = data[i].lastName;
     FORM.householdmembers.value = data[i].houseHoldMembers;
@@ -49,9 +49,9 @@ const renderTblBtns = function (data, i) {
   return td;
 };
 
-const renderTblRows = function (data) {
+const renderTblRows = (data) => {
   const tbody = document.createElement("tbody");
-  data.forEach(function (text, i) {
+  data.forEach((text, i) => {
     const tr = document.createElement("tr");
     for (const [key, value] of Object.entries(text)) {
       if (
@@ -72,7 +72,7 @@ const renderTblRows = function (data) {
   return tbody;
 };
 
-const renderTbl = function (data) {
+const renderTbl = (data) => {
   TBL.innerHTML = "";
   if (data.length > 0) {
     const table = renderTblHeaders();
