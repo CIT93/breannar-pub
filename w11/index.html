@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 11 Public</title>
+  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>
+        What is your Carbon Footprint?
+      </legend>
+      <div>
+        <label for="">First Name:</label>
+        <input type="text" name="firstname" id="firstname">
+        <span id="firstnameError" class="invalid"></span>
+      </div>
+      <div>
+        <label for="">Last Name:</label>
+        <input type="text" name="lastname" id="lastname">
+        <span id="lastnameError" class="invalid"></span>
+      </div>
+      <div>
+        <label for="">Count the members of your household:</label>
+        <input type="number" name="householdmembers" min="1" max="6" required>
+      </div>
+      <div>
+        <label for="">Consider the size of your home:</label>
+        <select name="housesize" required>
+          <option value="">---Please enter size of home---</option>
+          <option value="apt">Apartment</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+      <div>
+        <label for="">Evaluate your food choices:</label>
+        <select name="foodchoice" required>
+          <option value="">---Types of food---</option>
+          <option value="dailymeat">Domestic meat daily basis</option>
+          <option value="fewmeat">Domestic meat few times per week</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan or only eat wild meat</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button><br>
+      <span id="submitError" class="invalid"></span>
+    </fieldset>
+  </form>
+  <div id="output"></div>
+  <div id="tab-data"></div>
+</body>
+
+</html>
