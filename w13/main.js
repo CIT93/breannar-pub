@@ -1,34 +1,37 @@
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 
+const updateDOM = (message) => {
+  const newEl = document.createElement("h2");
+  newEl.textContent = message;
+  OUTPUT.appendChild(newEl);
+};
+
 const start = () => {
   const typeValue = FORM.type.value;
 
-  const startH2 = document.createElement("h2");
-  startH2.textContent = `Start ${typeValue} <> Goal reps is ${FORM.reps.value}`;
-  OUTPUT.appendChild(startH2);
+  updateDOM(`Start ${typeValue} <> Goal reps is ${FORM.reps.value}`);
 
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(typeValue), parseInt(FORM.time.value) * 1000);
+    if (parseInt(FORM.time.value) === 0) {
+      reject(`Error on Time selection`);
+    } else {
+      setTimeout(
+        () => resolve(`Stop ${typeValue}`),
+        parseInt(FORM.time.value) * 1000
+      );
+    }
   });
 };
 
-const stop = (typeValue) => {
-  const stopH2 = document.createElement("h2");
-  stopH2.textContent = `Stop ${typeValue}`;
-  OUTPUT.appendChild(stopH2);
-};
-
 const onError = (error) => {
-  const errorH2 = document.createElement("h2");
-  errorH2.textContent = `Error ${error}`;
-  OUTPUT.appendChild(errorH2);
+  updateDOM(`${error}`);
 };
 
 FORM.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  start().then(stop).catch(onError);
+  start().then(updateDOM).catch(onError);
 
   FORM.reset();
 });
