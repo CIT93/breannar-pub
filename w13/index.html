@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Time to get FIT!</legend>
+      <div>
+        <label for="">Type of Exercise</label>
+        <select name="type" required>
+          <option value="">---Please enter exercise---</option>
+          <option value="Push-Ups">Push-Ups</option>
+          <option value="Squats">Squats</option>
+          <option value="Lunges">Lunges</option>
+          <option value="Pull-Ups">Pull-Ups</option>
+        </select>
+      </div>
+      <div>
+        <label for="">Target Number of Reps</label>
+        <input type="number" name="reps" min="1" required>
+      </div>
+      <div>
+        <label for="">Time in Minutes</label>
+        <input type="number" name="time" min="1" required>
+      </div>
+      <div>
+        <label for="">Get Ready</label>
+        <button type="submit">submit</button>
+      </div>
+    </fieldset>
+  </form>
+  <div id="output">
+    <h1>Submit to start!</h1>
+  </div>
+</body>
+
+</html>
