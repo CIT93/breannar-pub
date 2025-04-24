@@ -4,6 +4,7 @@ function renderPhotos(photos) {
   photos.forEach((img) => {
     const imgEl = document.createElement("img");
     imgEl.setAttribute("src", img.download_url);
+    imgEl.setAttribute("alt", img.author);
     document.getElementById("output").appendChild(imgEl);
   });
 }
