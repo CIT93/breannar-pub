@@ -76,6 +76,23 @@ const renderTbl = (data) => {
 
     table.appendChild(tbody);
     TBL.appendChild(table);
+
+    if (data.length > 1) {
+      const row = table.insertRow();
+      for (var i = 0; i < 3; i++) {
+        row.insertCell(i);
+      }
+      const cellAvgText = row.insertCell(row.length);
+      cellAvgText.innerHTML = "Average Footprint";
+
+      const cellAvg = row.insertCell(row.length);
+
+      const totalData = data.map((item) => item.total);
+      const sum = totalData.reduce((acc, current) => acc + current, 0);
+      const avg = sum / totalData.length;
+
+      cellAvg.innerHTML = `${avg}`;
+    }
   }
 };
 
