@@ -7,7 +7,8 @@ class FP {
     foodChoice,
     foodSource,
     washingMachine,
-    dishWasher
+    dishWasher,
+    housePurchases
   ) {
     this.first = first;
     this.last = last;
@@ -17,11 +18,13 @@ class FP {
     this.foodSource = foodSource;
     this.washingMachine = washingMachine;
     this.dishWasher = dishWasher;
+    this.housePurchases = housePurchases;
     this.houseHoldPoints();
     this.houseSizePoints();
     this.foodChoicePoints();
     this.foodSourcePoints();
     this.waterConsumptionPoints();
+    this.housePurchasesPoints();
     this.total();
   }
 
@@ -91,12 +94,24 @@ class FP {
         this.waterConsumptionPoints = 1;
       }
 
-      if (this.washingMachine !== 0 && this.dishWasher !== 0) {
+      if (this.washingMachine !== 0) {
         this.waterConsumptionPoints *= 2;
       }
-      console.log(waterConsumptionTotal);
     }
-    console.log(this.waterConsumptionPoints);
+  }
+
+  housePurchasesPoints() {
+    if (this.housePurchases === "more7Purchases") {
+      this.housePurchasesPoints = 10;
+    } else if (this.housePurchases === "5to7Purchases") {
+      this.housePurchasesPoints = 8;
+    } else if (this.housePurchases === "3to5Purchases") {
+      this.housePurchasesPoints = 6;
+    } else if (this.housePurchases === "less3Purchases") {
+      this.housePurchasesPoints = 4;
+    } else if (this.housePurchases === "secondhand") {
+      this.housePurchasesPoints = 2;
+    }
   }
 
   total() {
@@ -105,7 +120,8 @@ class FP {
       this.houseSizePoints +
       this.foodChoicePoints +
       this.foodSourcePoints +
-      this.waterConsumptionPoints;
+      this.waterConsumptionPoints +
+      this.housePurchasesPoints;
   }
 }
 

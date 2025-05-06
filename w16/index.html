@@ -66,6 +66,17 @@
         <label for="">Weekly Dishwasher Water Consumption:</label>
         <input type="number" name="dishwasher" min="0" required>
       </div>
+      <div>
+        <label for="">How many household purchases every year?:</label>
+        <select name="housepurchases" required>
+          <option value="">---Yearly Household Purchases---</option>
+          <option value="more7Purchases">More than 7</option>
+          <option value="5to7Purchases">Between 5 and 7</option>
+          <option value="3to5Purchases">Between 3 and 5</option>
+          <option value="less3Purchases">Less than 3</option>
+          <option value="secondhand">Nothing or Secondhand Items Only</option>
+        </select>
+      </div>
       <button type="submit">Submit</button><br>
       <span id="submitError" class="invalid"></span>
     </fieldset>

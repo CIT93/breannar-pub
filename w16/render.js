@@ -42,6 +42,7 @@ const renderTblBtns = (data, i) => {
     FORM.foodsource.value = data[i].foodSource;
     FORM.washingmachine.value = data[i].washingMachine;
     FORM.dishwasher.value = data[i].dishWasher;
+    FORM.housepurchases.value = data[i].housePurchases;
     onUpdate(data, i);
   });
   return td;
