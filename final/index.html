@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanMyWeek</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
+</head>
+
+<body>
+  <div class="Hero container">
+    <h1>Plan My Week!</h1>
+    <p>Effortlessly plan your week by creating your schedule, easily tracking your free time to reduce stress and stay
+      focused on important dates.</p>
+    <a href="#create-activity" class="button">Create Activity</a>
+  </div>
+
+  <div class="create-activity" id="create-activity">
+    <div class="container">
+      <h2>Create a new activity</h2>
+      <form id="form">
+        <div class="form-group">
+          <label for="">Activity Name</label>
+          <input type="text" name="activityname" id="activityname">
+          <span id="activitynameError" class="invalid"></span>
+        </div>
+        <div class="form-group">
+          <label for="">Day Of Week</label>
+          <select name="dayofweek" id="dayofweek">
+            <option value="">---Please enter the day---</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+          <span id="dayofweekError" class="invalid"></span>
+        </div>
+        <div class="form-group row">
+          <div>
+            <label for="">Start Time</label>
+            <input type="time" name="starttime" id="starttime">
+            <span id="starttimeError" class="invalid"></span>
+          </div>
+          <div>
+            <label for="">End Time </label>
+            <input type="time" name="endtime" id="endtime">
+            <span id="endtimeError" class="invalid"></span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div>
+            <label for="">Important Activity</label>
+            <input type="checkbox" name="important" id="important">
+          </div>
+          <div>
+            <label for="">Reminder Time (minutes)</label>
+            <input type="number" name="reminder" id="reminder" value="15">
+          </div>
+        </div>
+        <span id="submitError" class="invalid"></span>
+        <button type="submit" class="button submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div id="output">
+  </div>
+</body>
+
+</html>

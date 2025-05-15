@@ -1,0 +1,9 @@
+export const FORM = document.getElementById("form");
+export const OUTPUT = document.getElementById("output");
+export const SUBMIT = document.getElementById("submitError");
+export const NAME = document.getElementById("activityname");
+export const DAY = document.getElementById("dayofweek");
+export const START = document.getElementById("starttime");
+export const END = document.getElementById("endtime");
+export const IMPORTANT = document.getElementById("important");
+export const REMINDER = document.getElementById("reminder");
