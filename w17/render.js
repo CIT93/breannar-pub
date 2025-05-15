@@ -47,7 +47,6 @@ const renderTblBtns = (data, i) => {
     const wasteRecycledOptions = data[i].wasteRecycled;
     const wasteRecycledSelect = FORM.wasterecycled;
     for (let value of wasteRecycledOptions) {
-      console.log(wasteRecycledOptions);
       const option = Array.from(wasteRecycledSelect.options).find(
         (opt) => opt.value === value
       );
@@ -55,6 +54,9 @@ const renderTblBtns = (data, i) => {
         option.selected = true;
       }
     }
+    FORM.personaltrans.value = data[i].personalTrans;
+    FORM.publictrans.value = data[i].publicTrans;
+    FORM.flighttrans.value = data[i].flightTrans;
     onUpdate(data, i);
   });
   return td;

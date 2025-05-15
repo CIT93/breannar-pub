@@ -10,7 +10,10 @@ class FP {
     dishWasher,
     housePurchases,
     wasteProduced,
-    wasteRecycled
+    wasteRecycled,
+    personalTrans,
+    publicTrans,
+    flightTrans
   ) {
     this.first = first;
     this.last = last;
@@ -23,6 +26,9 @@ class FP {
     this.housePurchases = housePurchases;
     this.wasteProduced = wasteProduced;
     this.wasteRecycled = wasteRecycled;
+    this.personalTrans = personalTrans;
+    this.publicTrans = publicTrans;
+    this.flightTrans = flightTrans;
     this.houseHoldPoints();
     this.houseSizePoints();
     this.foodChoicePoints();
@@ -31,6 +37,7 @@ class FP {
     this.housePurchasesPoints();
     this.wasteProducedPoints();
     this.wasteRecycledPoints();
+    this.annualTransPoints();
     this.total();
   }
 
@@ -142,6 +149,39 @@ class FP {
     }
   }
 
+  annualTransPoints() {
+    this.annualTransPoints = 0;
+    if (this.personalTrans > 15000) {
+      this.annualTransPoints += 12;
+    } else if (this.personalTrans >= 10000 && this.personalTrans <= 15000) {
+      this.annualTransPoints += 10;
+    } else if (this.personalTrans >= 1000 && this.personalTrans < 10000) {
+      this.annualTransPoints += 6;
+    } else if (this.personalTrans < 1000) {
+      this.annualTransPoints += 4;
+    }
+
+    if (this.publicTrans > 20000) {
+      this.annualTransPoints += 12;
+    } else if (this.publicTrans >= 15000 && this.publicTrans <= 20000) {
+      this.annualTransPoints += 10;
+    } else if (this.publicTrans >= 10000 && this.publicTrans < 15000) {
+      this.annualTransPoints += 6;
+    } else if (this.publicTrans >= 1000 && this.publicTrans < 10000) {
+      this.annualTransPoints += 4;
+    } else if (this.publicTrans < 1000) {
+      this.annualTransPoints += 2;
+    }
+
+    if (this.flightTrans === "short") {
+      this.annualTransPoints += 2;
+    } else if (this.flightTrans === "further") {
+      this.annualTransPoints += 6;
+    } else if (this.flightTrans === "far") {
+      this.annualTransPoints += 20;
+    }
+  }
+
   total() {
     this.total =
       this.houseHoldPoints +
@@ -151,7 +191,8 @@ class FP {
       this.waterConsumptionPoints +
       this.housePurchasesPoints +
       this.wasteProducedPoints +
-      this.wasteRecycledPoints;
+      this.wasteRecycledPoints +
+      this.annualTransPoints;
   }
 }
 

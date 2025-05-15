@@ -59,12 +59,17 @@
         </select>
       </div>
       <div>
-        <label for="">Weekly Washing machine Water Consumption:</label>
-        <input type="number" name="washingmachine" min="0" required>
-      </div>
-      <div>
-        <label for="">Weekly Dishwasher Water Consumption:</label>
-        <input type="number" name="dishwasher" min="0" required>
+        <fieldset>
+          <legend>Examine your weekly water consumption</legend>
+          <div>
+            <label for="">Washing Machine Consumption:</label>
+            <input type="number" name="washingmachine" min="0" required>
+          </div>
+          <div>
+            <label for="">Dishwasher Consumption:</label>
+            <input type="number" name="dishwasher" min="0" required>
+          </div>
+        </fieldset>
       </div>
       <div>
         <label for="">How many household purchases every year?:</label>
@@ -99,7 +104,31 @@
           <option value="compositing">Food waste (compositing)</option>
         </select>
       </div>
-      <button type="submit">Submit</button><br>
+			<div>
+				<fieldset>
+          <legend>
+            Tally up your annual transportation score
+          </legend>  
+          <div>
+            <label for="">Personal Transportation</label>
+            <input type="number" name="personaltrans" min="0" step="1000" required>
+          </div>
+          <div>
+            <label for="">Public Transportation</label>
+            <input type="number" name="publictrans" min="0" step="1000" required>
+          </div>
+          <div>
+            <label for="">Flights</label>
+            <select name="flighttrans" required>
+              <option value="">---Annual Flights---</option>
+              <option value="short">Short Distance, within your state</option>
+              <option value="further">Further Distance, nearby state or country</option>
+              <option value="far">Far Distance, to another continent</option>
+            </select>
+          </div>
+        </fieldset>
+			</div>
+			<button type="submit">Submit</button><br>
       <span id="submitError" class="invalid"></span>
     </fieldset>
   </form>

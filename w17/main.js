@@ -27,7 +27,10 @@ FORM.addEventListener("submit", (e) => {
       FORM.wasteproduced.value,
       Array.from(FORM.wasterecycled.selectedOptions).map(
         (option) => option.value
-      )
+      ),
+      parseInt(FORM.personaltrans.value),
+      parseInt(FORM.publictrans.value),
+      FORM.flighttrans.value
     );
     cfpData.push(fpObj);
     saveLS(cfpData);
